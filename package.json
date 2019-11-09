@@ -4,7 +4,8 @@
   "description": "Responsive Portfolio",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o dist/css/ --recursive"
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "scss": "node-sass scss/ -o dist/css/"
   },
   "author": "Sergio",
   "license": "ISC",
