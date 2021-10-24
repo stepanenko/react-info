@@ -1,4 +1,4 @@
 
-## React Apps
+## React - My info notes
 
-Apps with just a React, no TS
+Created: 24.10.2021
