@@ -3,6 +3,7 @@
 
 **Size**: 2kB including dependencies  
 **Website**: https://redux.js.org/introduction/getting-started
+**My Redux apps**: https://github.com/stepanenko/redux-apps
 
 ## Create a React Redux App
 
