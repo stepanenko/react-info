@@ -1,7 +1,9 @@
 
 # Hooks Notes
 
-## Number of local state variables
+- ## [Official Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
+
+- ## Number of local state variables
 
 ```javascript
 function ExampleWithManyStates() {
