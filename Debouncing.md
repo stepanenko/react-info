@@ -5,7 +5,7 @@ This is not a React-specific practice, but I’ve seen many developers that don�
 > Debouncing will bunch a series of sequential calls to a function into a single call to that function.
 > It ensures that one notification is made for an event that fires multiple times.
 
-```
+```js
 function App() {
   const handleChange = (event) => {
     // update value in state
@@ -23,7 +23,7 @@ If you don’t debounce the function, then you will end up with a ton of useless
 
 To debounce an event handler in React, you can do the following:
 
-```
+```js
 import { useMemo } from 'react';
 import { debounce } from 'lodash';
 
