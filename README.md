@@ -7,7 +7,7 @@
 - When a component re-renders all of its children components will also re-render, unless they are memoized
 - `useState` is a good solution if the rendered output depends on the value, otherwise `useRef` would be a more optimal solution
 - One of the most important concepts for optimizing React is memoization (caching results of a function, and returning the cache for subsequent calls)
-
+- [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 ### Articles to read:
 
