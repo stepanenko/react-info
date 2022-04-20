@@ -1,6 +1,10 @@
 
 # React Notes
 
+Some key notes:
+
+- Re-render is caused by a component’s props or state change
+
 ## [Use Hooks](https://usehooks.com/)
 **Use Hooks** is an easy to understand React Hook recipes by ui.dev. It is a collection of code examples to help you learn how hooks work and inspire you to take advantage of them in your next project.
 
