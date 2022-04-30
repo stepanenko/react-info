@@ -1,13 +1,17 @@
 
 # React Notes
 
-### Some key notes:
+### Key Notes from Articles:
 
 - Re-render is caused by a component’s props or state change
 - When a component re-renders all of its children components will also re-render, unless they are memoized
 - `useState` is a good solution if the rendered output depends on the value, otherwise `useRef` would be a more optimal solution
 - One of the most important concepts for optimizing React is memoization (caching results of a function, and returning the cache for subsequent calls)
 - [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
+- Hooks should not be called within loops, conditions, or nested functions since it can cause unexpected bugs
+- Always use Hooks before any early returns at the top level of your React component
+- The value of the state will only be updated in the next render, i.e. `setA(a + 1)` called 3 times in a row will only work once
+- Resolve the issue above by using a functional approach, e.g. `setA(a => a + 1)`
 
 ### Articles to read:
 
