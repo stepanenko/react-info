@@ -1,7 +1,6 @@
 
-
 ## React code style rules
-As application grow, it will become very hard to manage and maintain such code. We should always follow some rules while writing code and this is not limited to React.
+As application grows, it will become very hard to manage and maintain your code so we should always follow some rules while writing code.
 
 **Import Order:**
 - Third Party Libraries
@@ -14,15 +13,15 @@ As application grow, it will become very hard to manage and maintain such code. 
 (Separate each import category by one empty line)
 
 **Rules for Components:**
-- Destrucutre Props (If there)
-- Destructure redux state (If there)
-- Initialize State Variables (If there)
-- Create Refs (If there)
+- Destrucutre Props (if present)
+- Destructure redux state (if present)
+- Initialize State Variables (if present)
+- Create Refs (if present)
 - Initialize hooks (useDispatch)
 - Write all useEffects
 - Create const/let specific to Component
-- Call functions (If there)
+- Call functions (if present)
 
 (Separate each section by one empty line)
 
-If we enforce these rules, debugging will be super easy. It will also impact the Readability and onboarding new developers will be piece of cake.
+If we enforce these rules, debugging will be super easy. It will also impact the Readability and improve onboarding new developers.
