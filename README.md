@@ -11,7 +11,9 @@ Understanding re-rendering and memoization in React:
 - [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
-- updating the parent node implies running the render function of all children
+- React schedules a render every time the state of a component changes
+- Scheduling means rendering doesn't happen immediately - React will try to find the best moment for this
+- Updating the parent node implies running the render function of all children regardless of whether their props have changed or not
 - [continue...](https://felixgerschau.com/react-rerender-components/#when-does-react-re-render)
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
