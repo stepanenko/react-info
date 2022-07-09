@@ -11,6 +11,8 @@ Understanding re-rendering and memoization in React:
 - [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
+- Virtual DOM consists of your React application's elements
+- State changes in your application will be applied to the VDOM first. If the new state of the VDOM requires a UI change, the ReactDOM library will efficiently do this by trying to update only what needs to be updated
 - React schedules a render every time the state of a component changes
 - Scheduling means rendering doesn't happen immediately - React will try to find the best moment for this
 - Updating the parent node implies running the render function of all children regardless of whether their props have changed or not
