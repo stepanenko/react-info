@@ -18,7 +18,7 @@ When does React re-render components?:
 - In function components, the execution of the whole function is the equivalent of the render function in class components
 - React schedules a render every time the state of a component changes
 - Scheduling means rendering doesn't happen immediately - React will try to find the best moment for this
-- Updating the parent node implies running the render function of all children regardless of whether their props have changed or not
+- If your application is poorly structured, you might be running a lot more JavaScript than you expected because updating the parent node implies running the render function of all children
 - The danger lies in the code that you wrote is being executed repeatedly on every React render
 - [continue...](https://felixgerschau.com/react-rerender-components/#when-does-react-re-render)
 
