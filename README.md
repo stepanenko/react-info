@@ -13,6 +13,7 @@ Understanding re-rendering and memoization in React:
 When does React re-render components?:
 - Virtual DOM consists of your React application's elements
 - State changes in your application will be applied to the VDOM first. If the new state of the VDOM requires a UI change, the ReactDOM library will efficiently do this by trying to update only what needs to be updated
+- Renders in the real DOM means re-painting the UI
 - Renders in React means execution of the render function, which doesn't always imply an update of the UI
 - In function components, the execution of the whole function is the equivalent of the render function in class components
 - React schedules a render every time the state of a component changes
