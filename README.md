@@ -13,12 +13,13 @@ Understanding re-rendering and memoization in React:
 When does React re-render components?:
 - Virtual DOM consists of your React application's elements
 - State changes in your application will be applied to the VDOM first. If the new state of the VDOM requires a UI change, the ReactDOM library will efficiently do this by trying to update only what needs to be updated
-- Renders in the real DOM means re-painting the UI
-- Renders in React means execution of the render function, which doesn't always imply an update of the UI
+- Renders in the real DOM means re-painting the UI (to see native re-renders go to Chrome DevTools, under the three-dot menu > More tools > Rendering > Paint flashing)
+- Renders in React means execution of the render function, which doesn't always imply an update of the UI (to see virtual renders go to React DevTools > under Components > View Settings > Highlight updates when components render)
 - In function components, the execution of the whole function is the equivalent of the render function in class components
 - React schedules a render every time the state of a component changes
 - Scheduling means rendering doesn't happen immediately - React will try to find the best moment for this
 - Updating the parent node implies running the render function of all children regardless of whether their props have changed or not
+- The danger lies in the code that you wrote is being executed repeatedly on every React render
 - [continue...](https://felixgerschau.com/react-rerender-components/#when-does-react-re-render)
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
