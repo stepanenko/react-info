@@ -1,9 +1,9 @@
 
 ## Testing with JEST
 
-- Run one specific test (e.g. `describe("Contact Card", () => {...})`):
+- Run one specific test (e.g. `describe("Contact Card Component", () => {...})`):
 
-`jest -t Contact Card`
+`jest -t "Contact Card Component" "ContactCard"` - `"Contact Card Component"` - test name, `"ContactCard"` - test file name
 
 `t` means `--testNamePattern`
 
