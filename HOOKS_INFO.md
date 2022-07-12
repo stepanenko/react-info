@@ -1,9 +1,23 @@
 
 # Hooks Notes
 
-- ## [Official Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
+- ### [Official Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
 
-- ## Number of local state variables
+- ### useEffect
+
+1) Is `useState` setter needed as a dependency in useEffect when passed in through props?
+
+The setter function coming from the prop could change and become stale, and due to closures, the wrong setter function may be called by the useEffect. The Child2 component doesnt complain because the setter function is declared inside the component, and so the setter function is stable and cannot become stale. This is why Child2 doesn't complain, but Child does. [More](https://stackoverflow.com/questions/59198906/why-is-a-state-variables-setter-needed-as-a-dependency-with-useeffect-when-pass)
+
+More details:
+
+The ESLint rule is not extremely intelligent to determine what may or maynot change and thus prompts you to pass every variable that is being used within the useEffect function callback so that you don't miss those changes accidently.
+
+Since hooks are heavily dependent on closure, and beginner programmers find it difficult to debug problems related to closures, eslint warning here serves as a good help to avoid such cases.
+
+Now since state updater is directly returned from useState and doesn't change during the course of your component Lifecycle you can avoid passing it as a dependency and disable the warning with `// eslint-disable-next-line react-hooks/exhaustive-deps` or `// eslint-disable-line react-hooks/exhaustive-deps` put on the same line with the deps array
+
+- ### Number of local state variables
 
 ```javascript
 function ExampleWithManyStates() {
