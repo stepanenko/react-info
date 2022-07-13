@@ -5,7 +5,7 @@
 
 `jest -t "Contact Card Component" "ContactCard"` - `"Contact Card Component"` - test name, `"ContactCard"` - test file name
 
-`-t` means `--testNamePattern`
+`-t` stands for `--testNamePattern`
 
 Example with [react-app-rewired](https://github.com/timarney/react-app-rewired) library:
 
@@ -13,4 +13,8 @@ Example with [react-app-rewired](https://github.com/timarney/react-app-rewired) 
 
 `npx react-app-rewired test -f ContactCard`
 
-`-f` means file name
+`-f` stands for file name
+
+To generate and log [instanbul](https://istanbul.js.org/) coverage html report:
+
+`npx react-app-rewired test --coverage -f ContactCard`
