@@ -1,15 +1,17 @@
 
 ## Testing with JEST
 
-- Run one specific test (e.g. `describe("Contact Card Component", () => {...})`):
+### Run a specific test or test file
 
-`jest -t "Contact Card Component" "ContactCard"` - `"Contact Card Component"` - test name, `"ContactCard"` - test file name
+Lets say we have `describe("Contact Card", () => {...})` in the `ContactCard.tsx`:
+
+`jest -t "Contact Card" "ContactCard"` - `"Contact Card Component"` - test name, `"ContactCard"` - test file name
 
 `-t` stands for `--testNamePattern`
 
 Example with [react-app-rewired](https://github.com/timarney/react-app-rewired) library:
 
-`npx react-app-rewired test -t "Contact Card Component"`
+`npx react-app-rewired test -t "Contact Card"`
 
 `npx react-app-rewired test -f ContactCard`
 
