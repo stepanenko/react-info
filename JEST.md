@@ -18,3 +18,14 @@ Example with [react-app-rewired](https://github.com/timarney/react-app-rewired) 
 To generate and log [instanbul](https://istanbul.js.org/) coverage html report:
 
 `npx react-app-rewired test --coverage -f ContactCard`
+
+### Debugging tests
+
+You can use the debug `method`, accessible from the `screen` object, to log the current HTML output of components:
+
+```js
+it("displays contact card", () => {
+   render(<ContactCard />);
+   screen.debug();
+});
+```
