@@ -1,7 +1,7 @@
 
 ## Testing with JEST
 
-### Run a specific test or test file
+- ### Run a specific test or test file
 
 Lets say we have `describe("Contact Card", () => {...})` in the `ContactCard.tsx`:
 
@@ -21,7 +21,7 @@ To generate and log [instanbul](https://istanbul.js.org/) coverage html report:
 
 `npx react-app-rewired test --coverage -f ContactCard`
 
-### Debugging tests
+- ### Debugging tests
 
 You can use the debug `method`, accessible from the `screen` object, to log the current HTML output of components:
 
