@@ -15,6 +15,8 @@ Example with [react-app-rewired](https://github.com/timarney/react-app-rewired) 
 
 `npx react-app-rewired test -f ContactCard` - good as it runs only files named ContactCard, and gives each test details
 
+`npx react-app-rewired test -f service/api` - runs all tests in `api` folder, gives no test details
+
 `-f` stands for file name
 
 To generate and log [instanbul](https://istanbul.js.org/) coverage html report:
