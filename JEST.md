@@ -11,9 +11,9 @@ Lets say we have `describe("Contact Card", () => {...})` in the `ContactCard.tsx
 
 Example with [react-app-rewired](https://github.com/timarney/react-app-rewired) library:
 
-`npx react-app-rewired test -t "Contact Card"`
+`npx react-app-rewired test -t "Contact Card"` - bad as it runs and skips all except tests matching "Contact Card"
 
-`npx react-app-rewired test -f ContactCard`
+`npx react-app-rewired test -f ContactCard` - good as it runs only files named ContactCard, and gives each test details
 
 `-f` stands for file name
 
