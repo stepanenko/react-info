@@ -3,6 +3,7 @@
 As application grows, it will become very hard to manage and maintain your code so we should always follow some rules while writing code.
 
 **Import Order:**
+- React imports
 - Third Party Libraries
 - Custom Components
 - Utils Imports
@@ -14,14 +15,14 @@ As application grows, it will become very hard to manage and maintain your code 
 
 **Rules for Components:**
 - Destrucutre Props (if present)
-- Destructure redux state (if present)
-- Initialize State Variables (if present)
-- Create Refs (if present)
-- Initialize hooks (useDispatch)
-- Write all useEffects
-- Create const/let specific to Component
-- Call functions (if present)
+- Destructure State (Redux / React Query, if present)
+- Initialize State Variables (if needed)
+- Create Refs (if needed)
+- Initialize Hooks (useDispatch, if using Redux)
+- Write all useEffects (if needed)
+- Create const/let specific to Component (if needed)
+- Call functions (if needed)
 
-(Separate each section by one empty line)
+(Optional: Separate each section by one empty line)
 
-If we enforce these rules, debugging will be super easy. It will also impact the Readability and improve onboarding new developers.
+If we apply these rules, debugging will be easier. It will also impact readability and improve onboarding new developers.
