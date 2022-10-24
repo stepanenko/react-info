@@ -33,3 +33,15 @@ it("displays contact card", () => {
    screen.debug();
 });
 ```
+
+- ### Coverage report
+
+To generate a coverage report for a specific file run:
+
+`npx react-scripts test src/hooks/useCounter.test.ts --coverage --collectCoverageFrom=src/hooks/useCounter.ts`
+
+This will also work:
+
+`npx react-scripts test useCounter.test.ts --coverage --collectCoverageFrom=src/hooks/useCounter.ts`
+
+Then open report at: `my-project/coverage/lcov-report/index.html`. Note that the path might be different in your project.
