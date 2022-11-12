@@ -45,3 +45,5 @@ This will also work:
 `npx react-scripts test useCounter.test.ts --coverage --collectCoverageFrom=src/hooks/useCounter.ts`
 
 Then open report at: `my-project/coverage/lcov-report/index.html`. Note that the path might be different in your project.
+
+> If your test file runs but coverage shows `0%` check if the file extension was put correctly, e.g. `*.tsx`/`*.ts`/`*.jsx`
