@@ -36,3 +36,44 @@ function handleOrangeClick() {
   ```
 You don't have to use many state variables. State variables can hold objects and arrays just fine, so you can still group related data together.
 However, unlike `this.setState` in a class, updating a state variable always replaces it instead of merging it. If the number of local variables bocomes higher than 5 it's a good sign to use either a custom hook or the useReducer hook.
+
+- ### useRef
+
+Used to store references to DOM elements. Also you can store and update values with `useRef`.
+
+```tsx
+const Component = () => {
+    const ref = useRef(null);
+    return <div ref={ref}>Hello world</div>;
+};
+```
+
+With this reference, you can do lots of useful things like:
+
+- Grabbing an element's height and width
+- Seeing whether a scrollbar is present
+- Calling `focus()` on the element at a certain moment
+
+Another use-case for useRef allows us to store values, which you can later use and change:
+
+```tsx
+const Component = () => {
+    const ref = useRef({
+        renderCount: 0
+    });
+
+    // Increase the render count on every re-render
+    ref.current.renderCount += 1;
+
+    return <>Hello world</>;
+}
+```
+
+The key difference between useState and useRef is that:
+
+- If you update the state, your component will re-render
+- If you update the value stored in your ref, nothing will happen
+- If you don’t need the component to re-render (or you don't want the component to re-render), useRef may be a good candidate.
+
+More about useRef - https://www.emgoto.com/storing-values-with-useref/
+
