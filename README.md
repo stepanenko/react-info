@@ -1,6 +1,8 @@
 
 # React Notes
 
+### React/Redux [Recommended Resources](https://github.com/markerikson/react-redux-links#reactredux-links) from Mark Erikson - Redux maintainer
+
 ### Key Notes from Articles:
 
 Understanding re-rendering and memoization in React:
