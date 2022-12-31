@@ -33,14 +33,3 @@ When does React re-render components?:
 ### Articles to read:
 
 - https://github.com/stepanenko/stepanenko/blob/master/ARTICLES.md#3-react
-
-## [Use Hooks](https://usehooks.com/)
-**Use Hooks** is an easy to understand React Hook recipes by ui.dev. It is a collection of code examples to help you learn how hooks work and inspire you to take advantage of them in your next project.
-
-## [React Query](https://react-query.tanstack.com/overview)
-React Query is a data-fetching library for React, it helps with fetching, caching, synchronizing and updating server state in your React applications.
-While most state management libs are great for working with client state, they are not so great at working with **async or server state**. This is because **server state is totally different**.
-
-## [Material UI](https://mui.com/material-ui/guides/api/)
-#### [Notes](https://github.com/stepanenko/react-info/blob/master/MUI.md)
-Move faster with intuitive React UI tools. **MUI** offers a comprehensive suite of UI tools to help you ship new features faster. Start with Material UI, our fully-loaded component library, or bring your own design system to our production-ready components.
