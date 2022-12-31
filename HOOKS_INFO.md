@@ -3,6 +3,9 @@
 
 - ### [Official Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
 
+- ### [Use Hooks](https://usehooks.com/)
+**Use Hooks** is an easy to understand React Hook recipes by ui.dev. It is a collection of code examples to help you learn how hooks work and inspire you to take advantage of them in your next project.
+
 - ### useEffect
 
 1) Is `useState` setter needed as a dependency in useEffect when passed in through props?
