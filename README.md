@@ -5,6 +5,14 @@
 
 ### Key Notes from Articles:
 
+Why useEffect is a bad place to make API calls
+- React in development + strict mode runs component twice and may send a double request
+- `useEffect` hook runs after rendering of the entire UI so API calls will start only after the complete rendering of UI
+- The better approach would be fetching data and rendering it parallelly
+- **React Query** can fetch data as soon as rendering starts so you don't have to wait until react loads the entire component
+- Another way of solving the issue is by doing SSR so data already renders on the backend
+- Related video by Ryan Florence: [When To Fetch: Remixing React Router](https://www.youtube.com/watch?v=95B8mnhzoCM&ab_channel=RealWorldReact)
+
 Understanding re-rendering and memoization in React:
 - Re-render is caused by a component’s props or state change
 - When a component re-renders all of its children components will also re-render, unless they are memoized
