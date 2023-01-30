@@ -27,23 +27,23 @@ As application grows, it will become very hard to manage and maintain your code 
 
 If we apply these rules, debugging will be easier. It will also impact readability and improve onboarding new developers.
 
-## Bad vs Good
-Bad
+# Bad vs Good
+Bad:
 ```jsx
-const {role} = user
+const { role } = user;
 
-switch(role){
+switch(role) {
   case ADMIN:
-    return <AdminUser />
+    return <AdminUser />;
   case EMPLOYEE:
-    return <EmployeeUser />
+    return <EmployeeUser />;
   case USER:
-    return <NormalUser />
+    return <NormalUser />;
 }
 ```
-Good
+Good:
 ```jsx
-const {role} = user
+const { role } = user;
 
 const components = {
   ADMIN: AdminUser,
@@ -60,21 +60,21 @@ return <Componenent />;
 Bad:
 ```jsx
 return (
-    <button onClick={() => dispatch(ACTION_TO_SEND_DATA)}>  // here
+    <button onClick={() => dispatch(ACTION)}>    // here
       This is a bad example 
     </button>  
-)
+);
 ```
 
 Good:
 ```jsx
-const submitData = () => dispatch(ACTION_TO_SEND_DATA)
+const submitData = () => dispatch(ACTION);
 
 return (
   <button onClick={submitData}>  
     This is a good example 
   </button>  
-)
+);
 ```
 ---
 Bad:
@@ -109,14 +109,13 @@ Good:
 
 Let’s edit the `ChildrenComponent`. Now, no matter how many times you click on the button, it will render only when necessary:
 ```jsx
-import React ,{useState} from "react";
+import React, {useState} from "react";
 
 const ChildrenComponent = React.memo(({userName}) => {
-    console.log('rendered')
-    return <div> {userName}</div>
-})
+    console.log('rendered');
+    return <div>{userName}</div>;
+});
 ```
-
 ---
 
 Bad:
@@ -128,7 +127,7 @@ Bad:
 ```
 ```jsx
 // JSX
-return <div className='body'> ... </div>
+return <div className='body'> ... </div>;
 ```
 
 Good:
@@ -139,5 +138,6 @@ const bodyStyle = {
   height: "10px"
 };
 
-return <div style={bodyStyle}> ... </div>
+return <div style={bodyStyle}> ... </div>;
 ```
+---
