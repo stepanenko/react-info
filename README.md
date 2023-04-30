@@ -15,9 +15,12 @@ Why useEffect is a bad place to make API calls
 
 Understanding re-rendering and memoization in React:
 - Re-render is caused by a component’s props or state change
+- Re-rendering simply means calling the component’s function again. If that component has children components it will call those components’ functions, and so on all the way down the tree. The results are then diffed with the DOM to determine if the UI should be updated - this process is called reconciliation.
 - When a component re-renders all of its children components will also re-render, unless they are memoized
 - `useState` is a good solution if the rendered output depends on the value, otherwise `useRef` would be a more optimal solution
 - One of the most important concepts for optimizing React is memoization (caching results of a function, and returning the cache for subsequent calls)
+- Memoization uses memory and can be less performant in certain cases.
+- When a component is memoized, instead of re-rendering it, React diffs the component's new props with its previous props. The trade off that needs to be considered here is how intensive it is to compare the props vs running the function. If you have a large object in your props, it could be less performant to memoize that component.
 - [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
