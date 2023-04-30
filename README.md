@@ -21,6 +21,14 @@ Understanding re-rendering and memoization in React:
 - One of the most important concepts for optimizing React is memoization (caching results of a function, and returning the cache for subsequent calls)
 - Memoization uses memory and can be less performant in certain cases.
 - When a component is memoized, instead of re-rendering it, React diffs the component's new props with its previous props. The trade off that needs to be considered here is how intensive it is to compare the props vs running the function. If you have a large object in your props, it could be less performant to memoize that component.
+- When passing a function into a memoized component you can unknowingly remove the memoizing effect by not memoizing that function using `useCallback`.
+- If we're declaring a function in the component, a new function is created every re-render. If we are passing that function as a prop to another component, even though the contents of the function do not actually change, the reference changes which causes the child component to re-render, even if it is memoized:
+```jsx
+export const ParentComponent = () => {
+  const handleSomething = () => {};
+  return <HeavyComponent onSomething={handleSomething} />
+};
+```
 - [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
