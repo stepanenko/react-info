@@ -29,6 +29,13 @@ export const ParentComponent = () => {
   return <HeavyComponent onSomething={handleSomething} />
 };
 ```
+We can fix this by using useCallback and prevent the reference from changing:
+```jsx
+export const ParentComponent = () => {
+  const handleSomething = useCallback(() => {}, []);
+  return <HeavyComponent onSomething={handleSomething} />
+};
+```
 - [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
