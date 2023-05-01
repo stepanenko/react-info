@@ -41,7 +41,12 @@ export const ParentComponent = () => {
 const value = useMemo(() => expensiveFunction(aDep), [aDep]);
 ```
 The `value` will be cached, and only updated when `aDep` changes.
-- [read full... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
+- Lazy `useState`: prevents the initial value from being set on every re-render, useful when your initial state is computationally heavy:
+```jsx
+const initialState = () => calculateSomethingExpensive(props);
+const [count, setCount] = useState(initialState);
+```
+- [read full](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
 - Virtual DOM consists of your React application's elements
