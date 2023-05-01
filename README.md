@@ -36,7 +36,12 @@ export const ParentComponent = () => {
   return <HeavyComponent onSomething={handleSomething} />
 };
 ```
-- [continue... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
+- To avoid running the expensive function every re-render you can memoize it. The first render will call the function, and following re-renders will return the cached results of the function, rather than running it again:
+```jsx
+const value = useMemo(() => expensiveFunction(aDep), [aDep]);
+```
+The `value` will be cached, and only updated when `aDep` changes.
+- [read full... ](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 When does React re-render components?:
 - Virtual DOM consists of your React application's elements
