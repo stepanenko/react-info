@@ -58,7 +58,9 @@ When does React re-render components?:
 - Scheduling means rendering doesn't happen immediately - React will try to find the best moment for this
 - If your application is poorly structured, you might be running a lot more JavaScript than you expected because updating the parent node implies running the render function of all children
 - The danger lies in the code that you wrote is being executed repeatedly on every React render
-- [continue...](https://felixgerschau.com/react-rerender-components/#when-does-react-re-render)
+- React might not update a component because reference to the prop stayed the same
+
+- [continue...](https://felixgerschau.com/react-rerender-components/#force-a-react-component-to-rerender)
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
 - Hooks should not be called within loops, conditions, or nested functions since it can cause unexpected bugs
