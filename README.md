@@ -60,7 +60,7 @@ When does React re-render components?:
 - The danger lies in the code that you wrote is being executed repeatedly on every React render
 - React might not update a component because reference to the prop stayed the same
 
-- [continue...](https://felixgerschau.com/react-rerender-components/#reactmemo)
+- [continue...](https://felixgerschau.com/react-rerender-components/#structure-of-your-components)
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
 - Hooks should not be called within loops, conditions, or nested functions since it can cause unexpected bugs
