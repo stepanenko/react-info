@@ -59,6 +59,9 @@ When does React re-render components?:
 - If your application is poorly structured, you might be running a lot more JavaScript than you expected because updating the parent node implies running the render function of all children
 - The danger lies in the code that you wrote is being executed repeatedly on every React render
 - React might not update a component because reference to the prop stayed the same
+- A better way of improving re-renders is by restructuring your code
+- You may not need `React.memo` if you place your logic closer to where the data is used
+- Avoid putting everything in the root component of your application
 
 - [continue...](https://felixgerschau.com/react-rerender-components/#structure-of-your-components)
 
