@@ -62,7 +62,7 @@ When does React re-render components?:
 - A better way of improving re-renders is by restructuring your code
 - You may not need `React.memo` if you place your logic closer to where the data is used
 - Avoid putting everything in the root component of your application
-- [continue...](https://felixgerschau.com/react-rerender-components/#structure-of-your-components)
+- [read full](https://felixgerschau.com/react-rerender-components/)
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
 - Hooks should not be called within loops, conditions, or nested functions since it can cause unexpected bugs
