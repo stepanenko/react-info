@@ -48,7 +48,7 @@ const [count, setCount] = useState(initialState);
 ```
 - [read full](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
-When does React re-render components?:
+[When does React re-render components?](https://felixgerschau.com/react-rerender-components/)
 - Virtual DOM consists of your React application's elements
 - State changes in your application will be applied to the VDOM first. If the new state of the VDOM requires a UI change, the ReactDOM library will efficiently do this by trying to update only what needs to be updated
 - Renders in the real DOM means re-painting the UI (to see native re-renders go to Chrome DevTools, under the three-dot menu > More tools > Rendering > Paint flashing)
@@ -62,7 +62,6 @@ When does React re-render components?:
 - A better way of improving re-renders is by restructuring your code
 - You may not need `React.memo` if you place your logic closer to where the data is used
 - Avoid putting everything in the root component of your application
-- [read full](https://felixgerschau.com/react-rerender-components/)
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
 - Hooks should not be called within loops, conditions, or nested functions since it can cause unexpected bugs
