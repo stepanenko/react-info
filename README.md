@@ -65,9 +65,11 @@ const [count, setCount] = useState(initialState);
 
 [Common React Hooks Mistakes You Should Avoid](https://blog.bitsrc.io/common-react-hooks-mistakes-every-developer-should-avoid-defd47d09d8c):
 - Hooks should not be called within loops, conditions, or nested functions since it can cause unexpected bugs
+- If you need to use a variable inside a component that preserves its state across renderings without triggering a re-render, `useRef` Hook would be a better option.
 - Always use Hooks before any early returns at the top level of your React component
 - The value of the state will only be updated in the next render, i.e. `setA(a + 1)` called 3 times in a row will only work once
-- Resolve the issue above by using a functional approach, e.g. `setA(a => a + 1)`
+
+To fix the issue above by using a functional approach, e.g. `setA(a => a + 1)`
 
 ### Articles to read:
 
