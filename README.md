@@ -13,7 +13,7 @@ Why useEffect is a bad place to make API calls
 - Another way of solving the issue is by doing SSR so data already renders on the backend
 - Related video by Ryan Florence: [When To Fetch: Remixing React Router](https://www.youtube.com/watch?v=95B8mnhzoCM&ab_channel=RealWorldReact)
 
-Understanding re-rendering and memoization in React:
+[Understanding re-rendering and memoization in React](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 - Re-render is caused by a component’s props or state change
 - Re-rendering simply means calling the component’s function again. If that component has children components it will call those components’ functions, and so on all the way down the tree. The results are then diffed with the DOM to determine if the UI should be updated - this process is called reconciliation.
 - When a component re-renders all of its children components will also re-render, unless they are memoized
@@ -46,7 +46,6 @@ The `value` will be cached, and only updated when `aDep` changes.
 const initialState = () => calculateSomethingExpensive(props);
 const [count, setCount] = useState(initialState);
 ```
-- [read full](https://engineering.udacity.com/understanding-re-rendering-and-memoization-in-react-13e8c024c2b4)
 
 [When does React re-render components?](https://felixgerschau.com/react-rerender-components/)
 - Virtual DOM consists of your React application's elements
