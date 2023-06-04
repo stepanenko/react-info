@@ -1,9 +1,7 @@
 
-# React Notes
+## Article's Key Notes:
 
-### React/Redux [Recommended Resources](https://github.com/markerikson/react-redux-links#reactredux-links) from Mark Erikson - Redux maintainer
-
-### Key Notes from Articles:
+- ### React/Redux [Recommended Resources](https://github.com/markerikson/react-redux-links#reactredux-links) from Mark Erikson - Redux maintainer
 
 Why useEffect is a bad place to make API calls
 - React 18 in development + strict mode runs `useEffect` twice on mount and may send a request twice
