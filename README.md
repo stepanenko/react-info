@@ -1,7 +1,8 @@
 
 ## Article's Key Notes:
 
-- ### React/Redux [Recommended Resources](https://github.com/markerikson/react-redux-links#reactredux-links) from Mark Erikson - Redux maintainer
+- React/Redux [Recommended Resources](https://github.com/markerikson/react-redux-links#reactredux-links) from Mark Erikson (Redux maintainer)
+- [Article List](https://github.com/stepanenko/stepanenko/blob/master/ARTICLES.md#3-react)
 
 Why useEffect is a bad place to make API calls
 - React 18 in development + strict mode runs `useEffect` twice on mount and may send a request twice
@@ -66,7 +67,3 @@ const [count, setCount] = useState(initialState);
 - Always use Hooks before any early returns at the top level of your React component
 - The value of the state will only be updated in the next render, i.e. `setA(a + 1)` called 3 times in a row will only work once. To fix this we can use a functional approach, e.g. `setA(a => a + 1)`
 - Avoid unwanted renderings by passing a dependency array to `useEffect` Hook (because by default it runs on each render)
-
-### Articles to read:
-
-- https://github.com/stepanenko/stepanenko/blob/master/ARTICLES.md#3-react
