@@ -13,7 +13,7 @@
 - Whenever we update the state, React calls our component. Each render result "sees" its own state value which is a constant inside our function.
 - The key takeaway is that the constant inside any particular render doesn't change over time. It’s our component that's called again — and each render "sees" its own value that's isolated between renders.
 - Inside any particular render, props and state forever stay the same. Props and state are isolated between renders, and so are any values using them, including event handlers (they also "belong" to a particular render), and when you click, it keeps using the state from that render. So even async functions inside an event handler will "see" the same values.
-- `useEffect`s function is different on every render. Each version "sees" the value from the render that it “belongs” to.
+- `useEffect`s function is different on every render. Each version "sees" the value from the render that it “belongs” to. So effects run after every render, are conceptually a part of the component output, and “see” the props and state from that particular render.
 - [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#each-render-has-its-own-effects)
 
 Why useEffect is a bad place to make API calls
