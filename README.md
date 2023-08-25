@@ -8,12 +8,12 @@
 - The mental model for effects is different from `componentDidMount` and other lifecycles.
 - Empty `[]` means the effect doesn't use any value that participates in React data flow so is safe to apply once. There're strategies (primarily `useReducer` and `useCallback`) that can remove the need for a dependency instead of incorrectly omitting it.
 - Specifying a value that always changes in the dependency array can cause an infinite loop. Functions can cause this problem, and putting them inside effects, hoisting them out, or wrapping them with `useCallback` helps. To avoid recreating objects, `useMemo` can serve a similar purpose.
-- Hoist functions that don't need props or state outside of your component, and pull the ones that are used only by an effect inside of that effect. If after that your effect still ends up using functions in the render scope (including function from props), wrap them into `useCallback` where they’re defined.
-- Effects always "see" props and state from the render they were defined in. You can explicitly maintain some value in a mutable ref. If you think you’re seeing some props or state from an old render but don’t expect it, you probably missed some dependencies.
-- Whenever we update the state, React calls our component. Each render result "sees" its own state value which is a constant inside our function.
-- The key takeaway is that the constant inside any particular render doesn't change over time. It’s our component that's called again — and each render "sees" its own value that's isolated between renders.
+- Move functions outside of your component that don't need props or state. Pull the ones that are used only by an effect inside of that effect. If after that your effect still ends up using functions in the render scope (including functions from props), wrap them into `useCallback` where they're defined.
+- Effects always "see" props and state from the render they were defined in. You can explicitly maintain some value in a mutable ref. If you think you're seeing some props or state from an old render but don't expect it, you probably missed some dependencies.
+- Whenever we update the state, React calls our component. Each render result "sees" its own state values which is a constants inside our function.
+- The constants inside any particular render doesn't change over time. It's our component that's called again — and each render "sees" its own values that are isolated between renders.
 - Inside any particular render, props and state forever stay the same. Props and state are isolated between renders, and so are any values using them, including event handlers (they also "belong" to a particular render), and when you click, it keeps using the state from that render. So even async functions inside an event handler will "see" the same values.
-- `useEffect`s function is different on every render. Each version "sees" the value from the render that it “belongs” to. So effects run after every render, are conceptually a part of the component output, and “see” the props and state from that particular render.
+- `useEffect`s function is different on every render. Each version "sees" the values from the render that it “belongs” to. So effects run after every render, are conceptually a part of the component output, and "see" the props and state from that particular render.
 - [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#each-render-has-its-own-effects)
 
 Why useEffect is a bad place to make API calls
