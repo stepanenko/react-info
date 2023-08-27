@@ -17,7 +17,7 @@
 - Every function inside the component render (including event handlers, effects, timeouts or API calls inside them) captures the props and state of the render call that defined it.
 - If you want to read the latest rather than captured value inside some callback defined in an effect - the easiest way to do it is by using refs.
 - React only runs the effects after letting the browser paint. Effect cleanup is also delayed. The previous effect is cleaned up after the re-render with new props.
-- [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#swimming-against-the-tide)
+- [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#teaching-react-to-diff-your-effects)
 
 Why useEffect is a bad place to make API calls
 - React 18 in development + strict mode runs `useEffect` twice on mount and may send a request twice
