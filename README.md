@@ -16,6 +16,7 @@
 - `useEffect`s function is different on every render. Each version "sees" the values from the render that it “belongs” to. So effects run after every render, are conceptually a part of the component output, and "see" the props and state from that particular render.
 - Every function inside the component render (including event handlers, effects, timeouts or API calls inside them) captures the props and state of the render call that defined it.
 - If you want to read the latest rather than captured value inside some callback defined in an effect - the easiest way to do it is by using refs.
+- React only runs the effects after letting the browser paint. Effect cleanup is also delayed. The previous effect is cleaned up after the re-render with new props.
 - [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#swimming-against-the-tide)
 
 Why useEffect is a bad place to make API calls
