@@ -5,7 +5,6 @@
 - [Article List](https://github.com/stepanenko/stepanenko/blob/master/ARTICLES.md#3-react)
 
 [A complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect)
-- The mental model for effects is different from `componentDidMount` and other lifecycles.
 - Empty `[]` means the effect doesn't use any value that participates in React data flow so it is safe to apply once. There are strategies (primarily `useReducer` and `useCallback`) that can remove the need for a dependency instead of incorrectly omitting it.
 - Specifying a value that always changes in the dependency array can cause an infinite loop. Functions can cause this problem, and putting them inside effects, hoisting them out, or wrapping them with `useCallback` helps. To avoid recreating objects, `useMemo` can serve a similar purpose.
 - Move functions that don't need props or state outside of your component. Pull the ones that are used only by an effect inside of that effect. If after that your effect still ends up using functions in the render scope (including functions from props), wrap them into `useCallback` where they're defined.
@@ -18,7 +17,7 @@
 - If you want to read the latest rather than captured value inside some callback defined in an effect - the easiest way to do it is by using refs.
 - React only runs the effects after letting the browser paint. Effect cleanup is also delayed. The previous effect is cleaned up after the re-render with new props.
 - Using `[name]` as `useEffect`'s deps is like telling React: "Hey, I know you can't see inside this function, but I promise it only uses `name` and nothing else from the render scope."
-- [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#two-ways-to-be-honest-about-dependencies)
+- [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#making-effects-self-sufficient)
 
 Why useEffect is a bad place to make API calls
 - React 18 in development + strict mode runs `useEffect` twice on mount and may send a request twice
