@@ -17,7 +17,7 @@
 - If you want to read the latest rather than captured value inside some callback defined in an effect - the easiest way to do it is by using refs.
 - React only runs the effects after letting the browser paint. Effect cleanup is also delayed. The previous effect is cleaned up after the re-render with new props.
 - Using `[name]` as `useEffect`'s deps is like telling React: "Hey, I know you can't see inside this function, but I promise it only uses `name` and nothing else from the render scope."
-- [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#making-effects-self-sufficient)
+- [continue...](https://overreacted.io/a-complete-guide-to-useeffect/#functional-updates-and-google-docs)
 
 Why useEffect is a bad place to make API calls
 - React 18 in development + strict mode runs `useEffect` twice on mount and may send a request twice
