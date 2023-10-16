@@ -83,7 +83,9 @@ const [count, setCount] = useState(initialState);
 - The value of the state will only be updated in the next render, i.e. `setA(a + 1)` called 3 times in a row will only work once. To fix this we can use a functional approach, e.g. `setA(a => a + 1)`
 - Avoid unwanted renderings by passing a dependency array to `useEffect` Hook (because by default it runs on each render)
 
-## React Notes:
+[A Visual Guide to React Rendering](https://alexsidorenko.com/blog/react-render-always-rerenders/):
 - In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!
 - Wrapping a component with `memo` prevents the entire subtree of this component from re-rendering in response to parent render. But when its props change it will re-render. The way `memo` determines if props changed is by shallow comparison `prevProp === nextProp`.
 - To prevent a variable from being redeclared and reassigned new reference on every re-render React has `useMemo` and `useCallback` hooks to memoize props.
+- `useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`, the only difference is that it returns a function.
+- If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value.
