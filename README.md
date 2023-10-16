@@ -85,7 +85,7 @@ const [count, setCount] = useState(initialState);
 
 [A Visual Guide to React Rendering](https://alexsidorenko.com/blog/react-render-always-rerenders/):
 - React render doesn't mean DOM update. Therefore unnecessary renders do not always lead to expensive DOM manipulations.
-- In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!
+- In normal rendering (without the use of memoization), React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!
 - Wrapping a component with `memo` prevents the entire subtree of this component from re-rendering in response to parent render. But when its props change it will re-render. The way `memo` determines if props changed is by shallow comparison `prevProp === nextProp`.
 - To prevent a variable from being redeclared and reassigned new reference on every re-render React has `useMemo` and `useCallback` hooks to memoize props.
 - `useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`, the only difference is that it returns a function.
