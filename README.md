@@ -91,3 +91,7 @@ const [count, setCount] = useState(initialState);
 - `useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`, the only difference is that it returns a function.
 - If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value.
 - All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
+
+## React notes:
+- All props that are not primitive values have to be memoized for `React.memo` to work.
+- `useMemo` has its cost (consumes a bit of memory and makes initial render slightly slower), so it should not be used for every calculation. In React, mounting and updating components will be the most expensive calculation in most cases (unless you're actually calculating prime numbers, which you shouldn't do on the frontend anyway).
