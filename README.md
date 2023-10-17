@@ -97,5 +97,4 @@ const [count, setCount] = useState(initialState);
 - `useMemo` has its cost (consumes a bit of memory and makes initial render slightly slower), so it should not be used for every calculation. In React, mounting and updating components will be the most expensive calculation in most cases (unless you're actually calculating prime numbers, which you shouldn't do on the frontend anyway).
 - Typical use case for `useMemo` would be to memoize React elements. Usually parts of an existing render tree or results of generated render tree, like a map function that returns new elements.
 - Just providing `key` attribute will not improve lists' performance. To prevent re-renders of list elements you need to wrap them in `React.memo` and follow all of its best practices.
-- It is okay to use array's index as `key`, if the list is static, i.e. elements are not added/removed/inserted/re-ordered.
-
+- It is okay to use array's index as `key` if the list is static (elements are not added/removed/re-ordered) or the list is dynamic but items have no `React.memo` or local state.
