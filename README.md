@@ -92,16 +92,20 @@ const [count, setCount] = useState(initialState);
 - If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value.
 - All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
 
-## React notes:
+## React notes on memoization:
+Don't use memoization if you can't quantify the performance gains.
 - `React.memo` is a function that you can use to optimize the render performance of pure function components and hooks.
+- Components that use hooks can be freely wrapped in `React.memo` to achieve memoization.
 - The result of the function wrapped in `React.memo` is saved in memory and returns the cached result if it's being called with the same arguments again. `React.memo` prevents functions from being executed in those cases.
 - For `React.memo` to work all props that are not primitive values have to be memoized.
+- React always re-renders the component when the state changes, even if the component is wrapped in `React.memo`.
 - Just providing `key` attribute will not improve lists' performance. To prevent re-renders of list elements you need to wrap them in `React.memo` and follow all of its best practices.
 - It is okay to use array's index as `key` if the list is static (elements are not added/removed/re-ordered) or the list is dynamic but items have no `React.memo` or local state.
 - `useMemo` has its cost (consumes a bit of memory and makes initial render slightly slower), so it should not be used for every calculation. In React, mounting and updating components will be the most expensive calculation in most cases (unless you're actually calculating prime numbers, which you shouldn't do on the frontend anyway).
 - Typical use case for `useMemo` would be to memoize React elements. Usually parts of an existing render tree or results of generated render tree, like a map function that returns new elements.
 - Your code must not depend on `useMemo`. You should be able to replace `useMemo` calls with direct function calls. Write code without it first, then add it as needed.
 - `useMemo` might add more performance issues than it solves. Do not apply `useMemo` unless this is a costly computation, or, if you are not sure, you can benchmark both ways and make an informed decision.
-- `React.memo` explicitly caches the function, which means that it stores the result (VDOM) in memory. If you do this with too many or too big components this leads to more memory consumption.
+- `React.memo` explicitly caches the function, which means that it stores the result (VDOM) in memory.
+- If the component isn't heavy and usually renders with different props, most likely you don't need `React.memo`.
 - The other case where you should avoid using it is when the component's props change frequently. `React.memo` introduces additional overhead which compares the props with the memoized ones.
 - Most of the time you shouldn't bother spending time on optimizing unnecessary re-renders. The first step should always be to measure and identify performance bottlenecks. It's a good idea to profile your React app beforehand to see which components render the most. Applying `React.memo` to those components will have the biggest impact.
