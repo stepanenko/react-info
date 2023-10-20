@@ -109,3 +109,12 @@ Don't use memoization if you can't quantify the performance gains.
 - If the component isn't heavy and usually renders with different props, most likely you don't need `React.memo`.
 - The other case where you should avoid using it is when the component's props change frequently. `React.memo` introduces additional overhead which compares the props with the memoized ones.
 - Most of the time you shouldn't bother spending time on optimizing unnecessary re-renders. The first step should always be to measure and identify performance bottlenecks. It's a good idea to profile your React app beforehand to see which components render the most. Applying `React.memo` to those components will have the biggest impact.
+
+## React notes on reusability:
+- Reusability is great, but it's not a primary goal. It's always easier to make something hardcoded and specific, and harder to make it generic/abstract/reusable.
+- Abstracting code means that you have to think through all the possible ways that this might get used in the future, and handle all those possible use cases.
+- Abstracting code too early can often lead to making bad abstractions. It's often better to let code be duplicated for now rather than abstracting it right away.
+- This applies to any code in general, as well as React components.
+- Focusing on reusability as the primary goal is misleading. Have code that runs, accomplishes the desired functionality and does so without bugs.
+- "Make it work, make it right, make it fast".
+- Make something that works even if the code is ugly and/or duplicated. Then take some time to evaluate what you've got, look for duplication and patterns, and extract something reusable, if it even makes sense to do so.
