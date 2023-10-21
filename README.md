@@ -115,6 +115,10 @@ Don't use memoization if you can't quantify the performance gains.
 - Abstracting code means that you have to think through all the possible ways that this might get used in the future, and handle all those possible use cases.
 - Abstracting code too early can often lead to making bad abstractions. It's often better to let code be duplicated for now rather than abstracting it right away.
 - This applies to any code in general, as well as React components.
-- Focusing on reusability as the primary goal is misleading. Have code that runs, accomplishes the desired functionality and does so without bugs.
+- Focusing on reusability as the primary goal is misleading. Have code that runs, accomplishes the desired functionality, and does so without bugs.
 - "Make it work, make it right, make it fast".
 - Make something that works even if the code is ugly and/or duplicated. Then take some time to evaluate what you've got, look for duplication and patterns, and extract something reusable, if it even makes sense to do so.
+
+## React notes on custom hooks:
+- Hooks are just advanced functions that allow us to use things like state and context without creating new components. They are super useful when you need to share the same piece of logic that needs state between different parts of the app.
+- If the hook's state changes, the "host" component will re-render. It's just a nice abstraction around `setState`.
