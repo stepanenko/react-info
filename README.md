@@ -122,3 +122,6 @@ Don't use memoization if you can't quantify the performance gains.
 ## React notes on custom hooks:
 - Hooks are just advanced functions that allow us to use things like state and context without creating new components. They are super useful when you need to share the same piece of logic that needs state between different parts of the app.
 - If the hook's state changes, the "host" component will re-render. It's just a nice abstraction around `setState`.
+- Every state change in a hook, whether it affects its return value or not, will cause the "host" component to re-render.
+- Same with chaining hooks: if a hook's state changes, it will cause its "host" hook change as well, which will propagate up through the whole chain of hooks until it reaches the "host" component and re-renders it (which will cause another chain reaction of re-renders, only downstream now)
+- To fix that try moving something outside of the hook and use it somewhere where it won't cause the chain of re-renders. That way the state changes will be scoped to that outside component and won't affect your potentially slow component.
