@@ -93,7 +93,7 @@ const [count, setCount] = useState(initialState);
 - If the new state is computed using the previous state, you can pass a function to `setState`. The function will receive the previous value, and return an updated value.
 - All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
 
-## React notes on memoization:
+## React memoization:
 Don't use memoization if you can't check the performance gains.
 - `React.memo` is a function used to optimize the renders of pure components and hooks.
 - Components that use hooks can be freely wrapped in `React.memo` to achieve memoization.
@@ -112,7 +112,7 @@ Don't use memoization if you can't check the performance gains.
 - The other case where you should avoid using it is when the component's props change frequently. `React.memo` introduces additional overhead which compares the props with the memoized ones.
 - Most of the time you shouldn't bother spending time on optimizing unnecessary re-renders. The first step should always be to measure and identify performance bottlenecks. It's a good idea to profile your React app beforehand to see which components render the most. Applying `React.memo` to those components will have the biggest impact.
 
-## React notes on reusability:
+## React reusability:
 - Reusability is great, but it's not a primary goal. It's always easier to make something hardcoded and specific, and harder to make it generic/abstract/reusable.
 - Abstracting code means that you have to think through all the possible ways that this might get used in the future, and handle all those possible use cases.
 - Abstracting code too early can often lead to making bad abstractions. It's often better to let code be duplicated for now rather than abstracting it right away.
@@ -121,9 +121,44 @@ Don't use memoization if you can't check the performance gains.
 - "Make it work, make it right, make it fast".
 - Make something that works even if the code is ugly and/or duplicated. Then take some time to evaluate what you've got, look for duplication and patterns, and extract something reusable, if it even makes sense to do so.
 
-## React notes on custom hooks:
+## React custom hooks:
 - Hooks are just advanced functions that allow us to use things like state and context without creating new components. They are super useful when you need to share the same piece of logic that needs state between different parts of the app.
 - If the hook's state changes, the "host" component will re-render. It's just a nice abstraction around `setState`.
 - Same with chained hooks, every state change in a hook will cause all “parent” hooks to change until it reaches the "host" component, which again will trigger the re-render (downstream now).
 - To fix that try moving something outside of the hook and use it somewhere where it won't cause the chain of re-renders. That way the state changes will be scoped to that outside component and won't affect your potentially slow component.
 - When using a custom hook, make sure that the state that this hook encapsulates is not used on the level it wouldn't have been used with the components approach. Move it "down" to a smaller component if necessary.
+
+## React performance:
+- Memoize parts of the render tree that don't depend on the changed state to minimize their re-renders.
+- Never create new components inside the render function of another component.
+- When using context, make sure that `value` property is always memoised if it's not a `number`, `string` or `boolean`.
+- `useCallback` is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders. For example:
+  - The component that received the callback is wrapped in `React.memo` and has that callback as a dependency:
+  ```jsx
+  const MemoisedItem = React.memo(Item);
+  const List = () => {
+      // this has to be memoised, otherwise `React.memo` for the Item is useless
+      const onClick = () => { console.log("click") };
+      return <MemoisedItem onClick={onClick} country="Ukraine" />
+  }
+  ```
+  - If the component that received the callback has this callback as a dependency in hooks like `useMemo`, `useCallback` or `useEffect`:
+  ```jsx
+  const Item = ({ onClick }) => {
+      useEffect(() => {
+          // some heavy calculation here
+          const data = ...
+          onClick(data);
+          // if onClick is not memoised, this will be triggered on every single render
+      }, [onClick]);
+  
+      return <div>something</div>
+  };
+  
+  const List = () => {
+      // this has to be memoised, otherwise useEffect in Item above will be triggered on every single re-render
+      const onClick = () => { console.log("click") };
+
+      return <Item onClick={onClick} country="Ukraine" />
+  };
+  ```
