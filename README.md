@@ -94,7 +94,7 @@ const [count, setCount] = useState(initialState);
 - All consumers that are descendants of a Provider will re-render whenever the Provider’s value prop changes.
 
 ## React memoization:
-Don't use memoization if you can't check the performance gains.
+Don't use memoization if you can't check the performance gains. MOST OF THE TIME YOU SHOULD NOT BOTHER OPTIMIZING UNNECESSARY RERENDERS. React is VERY fast and there are so many things I can think of for you to do with your time that would be better than optimizing things like this.
 - `React.memo` is a function used to optimize the renders of pure components and hooks.
 - Components that use hooks can be freely wrapped in `React.memo` to achieve memoization.
 - The result of the function wrapped in `React.memo` is saved in memory and returns the cached result if it's being called with the same arguments again. `React.memo` prevents functions from being executed in those cases.
