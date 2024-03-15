@@ -80,3 +80,41 @@ The key difference between useState and useRef is that:
 
 More about useRef - https://www.emgoto.com/storing-values-with-useref/
 
+- ### useReducer
+
+```jsx
+function Counter({ step }) {
+  const [count, dispatch] = useReducer(reducer, 0);
+ 
+  function reducer(state, action) {
+    if (action.type === 'tick') {
+      return state + step;
+    } else {
+      throw new Error();
+    }
+  }
+ 
+  useEffect(() => {
+    const id = setInterval(() => {
+      dispatch({ type: 'tick' });
+    }, 1000);
+    return () => clearInterval(id);
+  }, [dispatch]);
+ 
+  return <h1>{count}</h1>;
+}
+```
+
+This pattern disables a few optimizations so try not to use it everywhere, but you can totally access props from a reducer if you need to.
+
+Even in that case, `dispatch` identity is still guaranteed to be stable between re-renders.
+So you may omit it from the effect deps if you want. It's not going to cause the effect to re-run.
+
+You may be wondering: how can the reducer "know" props when called from inside an effect that belongs to another render?
+The answer is that when you `dispatch`, React just remembers the action — but it will call your reducer during the next render.
+At that point the fresh props will be in scope, and you won’t be inside an effect.
+
+This is why I like to think of `useReducer` as the "cheat mode" of Hooks. It lets me decouple the update logic from describing what happened.
+This, in turn, helps me remove unnecessary dependencies from my effects and avoid re-running them more often than necessary.
+
+From Dan Abramov: https://overreacted.io/a-complete-guide-to-useeffect/
