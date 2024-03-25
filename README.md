@@ -21,7 +21,7 @@
 - If the new state is computed using the previous state, you can pass a function to `setState` e.g. `setCount(c => c + 1)` and remove unnecessary deps.
 - If you have two state variables depending on each other, or if you need to calculate the next state based on a prop, there is a more powerful sister pattern - `useReducer`.
 - If you only use some functions inside an effect, move them directly into that effect.
-- [continue... But I Can’t Put This Function Inside an Effect](https://overreacted.io/a-complete-guide-to-useeffect/)
+- [continue... Are Functions Part of the Data Flow?](https://overreacted.io/a-complete-guide-to-useeffect/)
 
 Why useEffect is a bad place to make API calls
 - React 18 in development + strict mode runs `useEffect` twice on mount and may send a request twice
