@@ -6,7 +6,7 @@ const App = () => {
   let isOpen = false;
   
   return (
-    <div className="layout">
+    <div>
       {/* nothing will happen */}
       <Button onClick={() => (isOpen = true)}>
         Open dialog
