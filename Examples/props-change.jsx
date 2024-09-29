@@ -2,7 +2,7 @@
 // And if a state update is not triggered, then changing props will be just "swallowed": React doesn't monitor them.
 
 const App = () => {
-  // local variable won't work
+  // local variable won't trigger a re-render
   let isOpen = false;
   
   return (
@@ -14,7 +14,8 @@ const App = () => {
   
       {/* will never show up */}
       {isOpen ? <ModalDialog onClose={() => (isOpen = false)} /> : null}
-    </div> );
+    </div>
+  );
 };
 
 // It just won't work. When the Button is clicked, the local isOpen variable will change.
