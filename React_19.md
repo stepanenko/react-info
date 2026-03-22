@@ -47,3 +47,23 @@ New approach:
 - Less client-side state management
 
 This pattern is used heavily in Next.js App Router.
+
+### 3. New async data pattern: `use()` API
+
+React 19 introduces the `use()` API.
+
+Example:
+```js
+const user = use(fetch("/api/user").then(r => r.json()))
+```
+
+What it does:
+- Reads promises during render
+- Works with Suspense automatically
+
+New approach:
+- Fetch data inside render
+- No `useEffect` + loading state boilerplate
+- Suspense handles async UI
+
+This is a big step toward async rendering in components.
