@@ -24,6 +24,8 @@ New approach:
 
 This shifts React toward a server-first architecture.
 
+---
+
 ### 2. Server Actions (mutations without API routes)
 
 React 19 introduces **Actions** for handling mutations.
@@ -48,6 +50,8 @@ New approach:
 
 This pattern is used heavily in Next.js App Router.
 
+---
+
 ### 3. New async data pattern: `use()` API
 
 React 19 introduces the `use()` API.
@@ -67,3 +71,31 @@ New approach:
 - Suspense handles async UI
 
 This is a big step toward async rendering in components.
+
+---
+
+### 4. New Hooks for forms and async mutations
+`useActionState` - manages server action state.
+```js
+const [state, action] = useActionState(createTodo, initialState)
+```
+`useFormStatus` - Lets child components know form state.
+```js
+const { pending } = useFormStatus()
+```
+
+`useOptimistic` - Optimistic UI updates.
+```js
+const [optimisticTodos, addOptimistic] = useOptimistic(todos)
+```
+
+New approach
+
+- React now has built-in async mutation UX tools
+- Less need for external libraries
+
+These hooks simplify form and mutation handling.
+
+---
+
+### 5.
